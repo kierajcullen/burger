@@ -1,33 +1,38 @@
-var connection = require("connection.js");
+// once we use sequelize, this will autogenerate
+var connection = require("./connection.js");
 
+// pass in table
+// you take in the values within the array
 module.exports = {
-  selectAll: function (table) {
+  selectAll: function (table, cb) {
     let query = "SELECT * FROM ??";
-    connection.query(query, [table], (err, results) => {
+    connection.query(query, [table], (err, res) => {
       if (err) console.log(err);
-      console.log(results);
-    });
-  },
-  insertOne: function (col1, col2, colValue1, colValue2) {
-    let query = "INSERT INTO burgers (??, ??) VALUES(??,??)";
-    connection.query(
-      query,
-      [col1, col2, colValue1, colValue2],
-      (err, results) => {
-        if (err) console.log(err);
-        console.log(results);
-      }
-    );
-  },
-  updateOne: function () {
-    let query = "";
-    connection.query(query, [], (err, results) => {
-      if (err) console.log(err);
-      console.log(results);
+      cb(res);
     });
   },
 
-  closeConnection: function () {
-    connection.end();
+  insertOne: function (col1, col2, colValue1, colValue2, cb) {
+    let query = "INSERT INTO burgers (??, ??) VALUES(??,??)";
+    connection.query(query, [col1, col2, colValue1, colValue2], (err, res) => {
+      if (err) console.log(err);
+      cb(res);
+    });
+  },
+
+  updateOne: function (col1, col1Value, col2, col2Value, cb) {
+    let query = "UPDATE burgers SET ?? = ? WHERE ?? = ?";
+    connection.query(query, [col1, col1Value, col2, col2Value], (err, res) => {
+      if (err) console.log(err);
+      cb(res);
+    });
+  },
+
+  deleteOne: function (col1, col1Value, cb) {
+    let query = "DELETE FROM burgers WHERE ?? = ?";
+    connection.query(query, [col1, col1Value], (err, res) => {
+      if (err) console.log(err);
+      cb(res);
+    });
   },
 };
