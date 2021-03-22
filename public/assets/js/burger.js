@@ -1,7 +1,7 @@
 // hit the backend routes from burger_controller
 $("#burger-btn").on("click", function (event) {
   event.preventDefault();
-  alert("hi");
+  // alert("hi");
   let burgerName = $("#add-burger").val().trim();
   $.post("/api/burgers", {
     burger_name: burgerName,
