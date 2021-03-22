@@ -12,25 +12,25 @@ module.exports = {
     });
   },
 
-  insertOne: function (col1, col2, colValue1, colValue2, cb) {
-    let query = "INSERT INTO burgers (??, ??) VALUES(??,??)";
-    connection.query(query, [col1, col2, colValue1, colValue2], (err, res) => {
+  insertOne: function (vals, cb) {
+    let query = "INSERT INTO burgers (??, ??) VALUES(?,?)";
+    connection.query(query, vals, (err, res) => {
       if (err) console.log(err);
       cb(res);
     });
   },
 
-  updateOne: function (col1, col1Value, col2, col2Value, cb) {
-    let query = "UPDATE burgers SET ?? = ? WHERE ?? = ?";
-    connection.query(query, [col1, col1Value, col2, col2Value], (err, res) => {
+  updateOne: function (vals, cb) {
+    let query = "UPDATE burgers SET ? = ? WHERE ? = ?";
+    connection.query(query, vals, (err, res) => {
       if (err) console.log(err);
       cb(res);
     });
   },
 
-  deleteOne: function (col1, col1Value, cb) {
+  deleteOne: function (vals, cb) {
     let query = "DELETE FROM burgers WHERE ?? = ?";
-    connection.query(query, [col1, col1Value], (err, res) => {
+    connection.query(query, [vals], (err, res) => {
       if (err) console.log(err);
       cb(res);
     });
