@@ -1,4 +1,13 @@
 body {
   background-color: rgb(193, 193, 231);
+  justify-content: center;
   text-align: center;
+}
+
+.form-group {
+  padding: 10px;
+}
+
+h2 {
+  text-decoration: underline;
 }

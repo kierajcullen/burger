@@ -1,4 +1,4 @@
-<h1>Burgers</h1>
+<h1>People Come And Go, You Can Always Eat Da Burger</h1>
 
 <h2></h2>
 
@@ -15,28 +15,28 @@
 <h2>Burgers To Devour</h2>
 
 
-<ol>
+<p>
     {{#each burgers}}
     {{#unless devoured}}
-    <li>
-        {{burger_name}}
-        <button class="devour" data-devoured={{devoured}} data-id={{id}}>Eat the burger</button>
-        <button class="delete" data-id={{id}}>Delete the burger</button>
-    </li>
-    {{/unless}}
-    {{/each}}
-</ol>
+<p>
+    {{burger_name}}
+    <button class="eat" data-devoured={{devoured}} data-id={{id}}>Eat the burger</button>
+    <button class="delete" data-id={{id}}>Delete the burger</button>
+</p>
+{{/unless}}
+{{/each}}
+</p>
 
 <h1>Burgers You've Devoured</h1>
-<ol>
+<p>
     {{#each burgers}}
     {{#if devoured}}
-    <li>
-        {{burger_name}}
-        <button class="devour" data-devoured={{devoured}} data-id={{id}}>Thanks, I'm full.</button>
-        <button class="delete" data-id={{id}}>Delete the burger</button>
+<p>
+    {{burger_name}}
+    <button class="eat" data-devoured={{devoured}} data-id={{id}}>Thanks, I'm full.</button>
+    <button class="delete" data-id={{id}}>Delete the burger</button>
 
     </li>
     {{/if}}
     {{/each}}
-</ol>
+    </li>

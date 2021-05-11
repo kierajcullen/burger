@@ -20,16 +20,16 @@ module.exports = {
     });
   },
 
-  updateOne: function (vals, cb) {
-    let query = "UPDATE burgers SET ? = ? WHERE ? = ?";
-    connection.query(query, vals, (err, res) => {
+  updateOne: function (table, values, condition, cb) {
+    let query = "UPDATE ?? SET ? WHERE ?";
+    connection.query(query, [table, values, condition], (err, res) => {
       if (err) console.log(err);
       cb(res);
     });
   },
 
   deleteOne: function (vals, cb) {
-    let query = "DELETE FROM burgers WHERE ?? = ?";
+    let query = "DELETE FROM burgers WHERE id = ?";
     connection.query(query, [vals], (err, res) => {
       if (err) console.log(err);
       cb(res);

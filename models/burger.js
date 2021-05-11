@@ -13,10 +13,12 @@ var burgers = {
     });
   },
 
-  updateOne: function (vals, cb) {
-    orm.updateOne(vals, function (res) {
-      cb(res);
-    });
+  updateOne: function (vals, condition, cb) {
+    // orm.updateOne(vals, function (res) {
+    //   cb(res);
+    // });
+    // burgers will be set by the model\
+    orm.updateOne("burgers", vals, condition, cb);
   },
 
   deleteOne: function (vals, cb) {
