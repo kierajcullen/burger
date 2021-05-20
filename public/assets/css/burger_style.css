@@ -8,6 +8,10 @@ body {
   padding: 10px;
 }
 
+p {
+  text-transform: capitalize;
+}
+
 h2 {
   text-decoration: underline;
 }
