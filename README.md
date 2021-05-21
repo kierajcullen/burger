@@ -5,3 +5,7 @@ This application utilized databases, Node.js and creates a burger database for u
 ## Deployed Application
 
 [Burger App](https://burger-bosses.herokuapp.com/)
+
+## Preview
+
+![pic](./img/github.JPG)
